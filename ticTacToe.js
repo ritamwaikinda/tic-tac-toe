@@ -90,7 +90,7 @@ const checkBoard = () => {
 			gameBoard[positionOne] === gameBoard[positionTwo] &&
 			gameBoard[positionOne] === gameBoard[positionThree]
 		) {
-			alert(`${gameBoard[positionOne]} s win!`);
+			completeGame(`${gameBoard[positionOne]} wins!`);
 			return;
 		}
 	}
@@ -114,6 +114,11 @@ const switchPlayer = () => {
 	}
 };
 
+/**
+ * It creates an overlay element, adds a message and a restart button to it, and then appends it to the
+ * body
+ * @param message - The message to display in the overlay.
+ */
 const completeGame = (message) => {
 	const overlayElement = document.createElement("div");
 	overlayElement.style.position = "fixed";
@@ -133,6 +138,7 @@ const completeGame = (message) => {
 	messageElement.style.color = "white";
 	messageElement.style.fontSize = "100px";
 
+	/* It's appending the messageElement to the overlayElement. */
 	overlayElement.appendChild(messageElement);
 
 	const restartButtonElement = document.createElement("button");
@@ -141,23 +147,37 @@ const completeGame = (message) => {
 	restartButtonElement.style.color = "white";
 	restartButtonElement.style.border = "1px solid white";
 	restartButtonElement.style.padding = "10px 30px";
+	restartButtonElement.style.fontSize = "20px";
+
+	/* It's adding an event listener to the restartButtonElement that resets the game and removes the
+overlayElement from the body. */
+	restartButtonElement.addEventListener("click", () => {
+		resetGame();
+		document.body.removeChild(overlayElement);
+	});
+
+	/* It's appending the restartButtonElement to the overlayElement. */
+	overlayElement.appendChild(restartButtonElement);
 
 	document.body.appendChild(overlayElement);
 };
-
-completeGame("You won!");
 
 /**
  * Reset the game by creating a new game board element, creating new square elements, and appending
  * them to the game board element, and then appending the game board element to the body.
  */
 function resetGame() {
+	if (gameBoardElement) {
+		document.body.removeChild(gameBoardElement);
+	}
+
 	gameBoardElement = makeGameBoardElement();
 	for (let i = 0; i < 9; i++) {
 		gameBoardElement.appendChild(makeSquareElements(i));
 	}
 
 	currentPlayer = players[0];
+	gameBoard.fill("");
 	document.body.appendChild(gameBoardElement);
 }
 

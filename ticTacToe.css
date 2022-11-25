@@ -9,6 +9,8 @@ body {
 
 h1 {
     font-size: 50px;
+    display: flex;
+    justify-content: center;
 }
 
 .game-board {
@@ -19,6 +21,11 @@ h1 {
     grid-template-rows: 150px 150px 150px;
     align-items: center;
     justify-items: center;
+    margin: 0 auto; /*center a div that has no parent*/
+    border-radius: 50px;
+        background: #fdfdfd;
+        box-shadow: 20px 20px 60px #bebebe,
+            -20px -20px 60px #ffffff;
 }
 
 .square {
@@ -28,8 +35,8 @@ h1 {
     font-size: 100px;
     height: 100%;
     width: 100%;
-    border-right: black 1px solid;
-    border-bottom: black 1px solid;
+    border-right: 4px groove;
+    border-bottom: 4px groove;
     cursor: pointer;
 }
 
