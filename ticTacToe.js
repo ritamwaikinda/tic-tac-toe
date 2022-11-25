@@ -1,3 +1,5 @@
+// import swal from "sweetalert";
+
 //Game state
 const players = ["O", "X"];
 const gameBoard = ["", "", "", "", "", "", "", "", ""];
@@ -70,7 +72,7 @@ const checkBoard = () => {
 			gameBoard[positionOne] === gameBoard[positionTwo] &&
 			gameBoard[positionOne] === gameBoard[positionThree]
 		) {
-			alert(`${gameBoard[positionOne]}s win!`);
+			alert(`${gameBoard[positionOne]} s win!`);
 		}
 	}
 };
