@@ -34,7 +34,7 @@ h1 {
 }
 
 .square:hover {
-    background-color: lightgray;
+    background-color: lightgoldenrodyellow;
 }
 
 .square:nth-child(3n) {

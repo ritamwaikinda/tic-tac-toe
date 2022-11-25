@@ -62,16 +62,16 @@ const checkBoard = () => {
 		[2, 4, 6],
 	];
 
-	for (let winState of winingState) {
+	for (let winState of winningStates) {
 		const [positionOne, positionTwo, positionThree] = winState;
-	}
 
-	if (
-		gameBoard[positionOne] !== "" &&
-		gameBoard[positionOnne] === gameBoard[positionTwo] &&
-		gameBoard[positionOne] === gameBoard[positionThree]
-	) {
-		alert($`{gameboard[positionOne]}s win!`);
+		if (
+			gameBoard[positionOne] !== "" &&
+			gameBoard[positionOne] === gameBoard[positionTwo] &&
+			gameBoard[positionOne] === gameBoard[positionThree]
+		) {
+			alert(`${gameBoard[positionOne]}s win!`);
+		}
 	}
 };
 
