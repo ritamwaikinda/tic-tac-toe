@@ -1,8 +1,10 @@
 //Game state
 /* It's creating a constant variable called players and assigning it to an array of strings. */
 const players = ["O", "X"];
+
 /* It's creating a constant variable called gameBoard and assigning it to an array of strings. */
 const gameBoard = ["", "", "", "", "", "", "", "", ""];
+
 /* It's creating two variables called currentPlayer and gameBoardElement and assigning them to
 undefined. */
 let currentPlayer;
@@ -68,6 +70,10 @@ const makeSquareElements = (squareNumber) => {
 	return gameSquare;
 };
 
+/**
+ * It's checking the gameBoard array to see if anyone has won or if all of the squares have been used
+ * @returns It's returning the gameBoard array.
+ */
 const checkBoard = () => {
 	/* It's creating a constant variable called winningStates and assigning it to an array of arrays. */
 	const winningStates = [
